@@ -14,7 +14,7 @@ Easy to use and using the best development technologies.
   + Adaptive design for different types of devices (phone, tablet, desktop)
   + Slide-out navigation menu (for mobile devises)
   + React router
-  + Using local storage to save recycle bin and favorites
+  + Using local storage to save shopping cart and favorites
   + Filter products in a convenient way
   + My own swipe logic (decided not to use the libraries)
 
