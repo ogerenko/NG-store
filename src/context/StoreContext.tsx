@@ -49,11 +49,6 @@ export const StoreProvider: React.FC<Props> = ({ children }) => {
         setIsErrorOfLoading(true);
         throw error;
       });
-    // .finally(() => {
-    //   setTimeout(() => {
-    //     setIsErrorOfLoading(false);
-    //   }, 3000);
-    // });
   }, []);
 
   const valueStore = useMemo(

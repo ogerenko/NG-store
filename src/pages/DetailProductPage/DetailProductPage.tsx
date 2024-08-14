@@ -168,20 +168,6 @@ export const DetailProductPage = () => {
 
   const elementRef = useSwipe(handleMoveSlidesLeft, handleMoveSlidesRight);
 
-  // {currentProduct?.id !== productId && !isErrorOfLoading && (
-  //   <div className="full-height-container">
-  //     <Loader />
-  //   </div>
-  // )
-  // }
-
-  // {currentProduct?.id !== productId && isErrorOfLoading && (
-  //   <ProductNotFound />
-  // )
-  // }
-
-  // {currentProduct && currentProduct.id === productId &&
-
   return (
     <>
       <div className="history-path">
@@ -202,7 +188,6 @@ export const DetailProductPage = () => {
       </div>
 
       <div className="history-path">
-        {/* eslint-disable-next-line */}
         <div className="history-path__icon history-path__icon--arrow--back" />
         <Link
           to={state ? `${state.pathname}?${state.search}` : '..'}
@@ -225,7 +210,6 @@ export const DetailProductPage = () => {
           <div className="product__main-content">
             <div className="main-content__gallery" ref={elementRef}>
               <div className="gallery__title-photo">
-                {/* {productImages.map((image, index) => ( */}
                 {currentProduct?.images.map((image, index) => (
                   <img
                     className={classNames('title-photo', {
@@ -238,7 +222,6 @@ export const DetailProductPage = () => {
               </div>
 
               <div className="gallery__photos-list">
-                {/* {productImages.map((image, index) => ( */}
                 {currentProduct?.images.map((image, index) => (
                   <img
                     className={classNames('photos-list__photo', {
@@ -262,7 +245,6 @@ export const DetailProductPage = () => {
                       key={color}
                       className={classNames('color-buttons__button', {
                         'color-buttons__button--selected':
-                          // selectedColor === color,
                           currentProduct.color === color,
                       })}
                       onClick={() => handleChangePhoneColor(color)}
@@ -285,7 +267,6 @@ export const DetailProductPage = () => {
                       key={cap}
                       className={classNames('select-capacity__button', {
                         'select-capacity__button--selected':
-                          // selectedCapacity === cap,
                           currentProduct.capacity === cap,
                       })}
                       onClick={() => handleChangePhoneCapacity(cap)}
