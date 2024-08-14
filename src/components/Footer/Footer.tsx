@@ -30,7 +30,7 @@ export const Footer = () => {
             className="contacts__link"
             target="_blank"
           >
-            Portfolio
+            Rights
           </Link>
         </div>
 

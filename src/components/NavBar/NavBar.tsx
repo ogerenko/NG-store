@@ -67,7 +67,11 @@ export const NavBar = () => {
           >
             {!!basketProducts.length && (
               <span className="counter counter-basket">
-                {basketProducts.length}
+                {basketProducts.reduce((acc, item) => {
+                  const newAcc = acc + item.amount;
+
+                  return newAcc;
+                }, 0)}
               </span>
             )}
           </NavLink>
