@@ -1,15 +1,29 @@
 @import '../../utils/stylesUtils/variables.scss';
 @import '../../utils/stylesUtils/mixin.scss';
 
+
+@keyframes existNavBar {
+  from {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .navbar {
   display: flex;
-  height: 48px;
+  height: $header-height-mobile;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0px 1px 0px 0px $regular-gray-color;
 
+  animation: existNavBar 1s;
+
   @include on-desktop {
-    height: 64px;
+    height: $header-height-tablet;
   }
 
   &__logo {
@@ -131,13 +145,23 @@
   }
 
   &__favourite {
+    display: none;
     position: relative;
     background-image: url(../../../public/img/icons-image/heart_empty.svg);
+    
+    @include on-tablet {
+      display: flex;
+    }
   }
 
   &__basket {
+    display: none;
     position: relative;
     background-image: url(../../../public/img/icons-image/shop_bag.svg);
+
+    @include on-tablet {
+      display: flex;
+    }
   }
 }
 

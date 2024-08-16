@@ -1,6 +1,16 @@
 @import '../../utils/stylesUtils/mixin.scss';
 @import '../../utils/stylesUtils/variables.scss';
 
+@keyframes existCard {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .card {
   padding: 30px;
   width: $card-width;
@@ -8,10 +18,16 @@
   border: 1px solid $regular-gray-color;
   box-sizing: border-box;
 
-  transition-duration: $short-duration;
+  animation-name: existCard;
+  animation-duration: 1000ms;
+
+  transition-duration: $middle-duration;
 
   &:hover {
     box-shadow: 0px 2px 16px 3px #0000001a;
+    .card__image {
+      scale: 1.05;
+    }
   }
 
   &__link {
@@ -23,6 +39,8 @@
     width: 100%;
     height: 196px;
     object-fit: contain;
+
+    transition-duration: $middle-duration;
   }
 
   &__title {
@@ -57,7 +75,6 @@
     column-gap: 8px;
   }
 }
-
 
 .button {
   &--add-to-card {
@@ -140,4 +157,86 @@
     line-height: 15.34px;
     color: $main-text-color;
   }
+}
+
+// for hover link
+@keyframes moveToolTip {
+  0%{
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+  
+}
+.card__buttons {
+  position: relative;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  top: -30px;
+  width: 60%;
+  height: 30px;
+  transform: translateX(-50%);
+  color: $secondary-text-color;
+  text-decoration: none;
+  font-family: 'SemiBold';
+  font-size: 12px;
+  box-sizing: border-box;
+  border: 1px solid $regular-gray-color;
+  background-color: $light-gray-color;
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 10;
+  text-align: center;
+
+  animation: moveToolTip 500ms;
+  
+
+  transition-duration: $middle-duration;
+  &:hover {
+    box-shadow: 0px 3px 8px 0px #17203166;
+  }
+
+  &__basket {
+    left: 30%;
+  }
+
+  &__favourite{
+    left: 70%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 85%;
+    transform: translateX(-50%);
+    border-style: solid;
+    border-width: 10px;
+    border-color: $light-gray-color transparent transparent transparent;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 85%;
+    transform: translateX(-50%);
+    border-style: solid;
+    border-width: 11.5px;
+    border-color: $regular-gray-color transparent transparent transparent;
+  }
+}
+
+
+.button--add-to-card--active:hover + .tooltip,
+.tooltip:hover {
+  display: block;
+}
+.button--add-to-favourite--active:hover + .tooltip,
+.tooltip:hover {
+  display: block;
 }

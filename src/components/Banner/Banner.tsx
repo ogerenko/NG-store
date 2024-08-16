@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useSwipe } from '../../hooks/useSwipe';
 import './Banner.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 const slides = [
@@ -20,19 +20,44 @@ const slides = [
 ];
 
 export const Banner = () => {
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [slidesOrder, setSlidesOrder] = useState([slides.length - 1, 0, 1]);
 
   const handleMoveSlidesLeft = () => {
-    setCurrentSlideIndex(prevIndex =>
-      prevIndex === 0 ? slides.length - 1 : prevIndex - 1,
-    );
+    setSlidesOrder(prev => {
+      const firstIndex = 0;
+      const lastIndex = slides.length - 1;
+
+      return prev.map(x => {
+        if (x === firstIndex) {
+          return lastIndex;
+        }
+
+        return x - 1;
+      });
+    });
   };
 
   const handleMoveSlidesRight = () => {
-    setCurrentSlideIndex(prevIndex =>
-      prevIndex === slides.length - 1 ? 0 : prevIndex + 1,
-    );
+    setSlidesOrder(prev => {
+      const lastIndex = slides.length - 1;
+
+      return prev.map(x => {
+        if (x === lastIndex) {
+          return 0;
+        }
+
+        return x + 1;
+      });
+    });
   };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      handleMoveSlidesRight();
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   const elementRef = useSwipe(handleMoveSlidesLeft, handleMoveSlidesRight);
 
@@ -49,7 +74,9 @@ export const Banner = () => {
             <Link to={slide.link} key={slide.image}>
               <img
                 className={classNames('container__slide', {
-                  'container__slide--active': index === currentSlideIndex,
+                  'container__slide--active': index === slidesOrder[1],
+                  'container__slide--prev': index === slidesOrder[0],
+                  'container__slide--next': index === slidesOrder[2],
                 })}
                 src={slide.image}
               />
@@ -68,7 +95,7 @@ export const Banner = () => {
           <img
             key={index}
             src={
-              index === currentSlideIndex
+              index === slidesOrder[1]
                 ? './img/icons-image/icon-count-active.svg'
                 : './img/icons-image/icon-count-not-active.svg'
             }

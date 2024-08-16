@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 import './ProductsPage.scss';
 import { Product } from '../../types/Product';
@@ -12,6 +12,7 @@ import { ProductType } from '../../types/ProductType';
 import { StoreContext } from '../../context/StoreContext';
 import { Loader } from '../../components/Loader';
 import { ProductNotFound } from '../../components/ProductNotFound';
+import { HistoryPath } from '../../components/HistoryPath';
 
 type Props = {
   type: ProductType;
@@ -48,22 +49,12 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
 
   return (
     <>
-      <div className="history-path">
-        <Link to="/">
-          <div className="history-path__icon history-path__icon--home" />
-        </Link>
-        <div className="history-path__icon history-path__icon--arrow" />
-        <Link to={`/${type}`} className="history-path__page-name">
-          {capitalize(type)}
-        </Link>
-      </div>
+      <HistoryPath />
 
       {!!!productsType.length && !isErrorOfLoading ? (
         <div className="full-height-container">
           <Loader />
         </div>
-      ) : !!!productsType.length ? (
-        <ProductNotFound />
       ) : (
         <>
           <h1 className="products-title">{capitalize(type)}</h1>
@@ -72,11 +63,15 @@ export const ProductsPage: React.FC<Props> = ({ type }) => {
 
           <FilterForms />
 
-          <div className="products-cards">
-            {visiblePhones.map(product => (
-              <ProductCard key={product.id} isDiscount product={product} />
-            ))}
-          </div>
+          {!!!visiblePhones.length ? (
+            <ProductNotFound />
+          ) : (
+            <div className="products-cards">
+              {visiblePhones.map(product => (
+                <ProductCard key={product.id} isDiscount product={product} />
+              ))}
+            </div>
+          )}
 
           <Pagination products={productsType} />
         </>

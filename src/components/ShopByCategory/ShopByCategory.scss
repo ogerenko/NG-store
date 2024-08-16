@@ -30,11 +30,18 @@
 
   &__link {
     text-decoration: none;
+
+    &:hover {
+      .category-card {
+        &__image {
+          scale: 1.05;
+        }
+      }
+    }
   }
 
   &__image-container {
-    width: calc(100vw - 32px);
-    height: calc(100vw - 32px);
+    height: calc(100vw - ($content-margin-phone * 2));
     overflow: hidden;
 
     @include on-tablet {
@@ -46,14 +53,11 @@
       height: 368px;
     }
   }
+
   &__image {
     width: 100%;
 
-    transition-duration: $short-duration;
-
-    &:hover {
-      scale: 1.05;
-    }
+    transition-duration: $middle-duration;
   }
 
   &__title {
@@ -61,7 +65,6 @@
     font-size: 20px;
     line-height: 25.56px;
     color: $main-text-color;
-
     margin-top: 24px;
     margin-bottom: 4px;
   }

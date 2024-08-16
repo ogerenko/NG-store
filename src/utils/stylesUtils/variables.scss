@@ -1,3 +1,4 @@
+
 $tablet-min-width: 640px;
 $desktop-min-width: 1200px;
 
@@ -7,16 +8,20 @@ $three-colums-min-width: 896px;
 $four-colums-min-width: 1184px;
 
 $main-text-color: #313237;
-$secondary-text-color: #89939A;
+$secondary-text-color: #89939a;
 
-$dark-gray-color: #B4BDC3;
-$regular-gray-color: #E2E6E9;
-$light-gray-color: #FAFBFC;
+$dark-gray-color: #b4bdc3;
+$regular-gray-color: #e2e6e9;
+$light-gray-color: #fafbfc;
 
-$red-color: #EB5757;
-$green-color: #27AE60;
+$red-color: #eb5757;
+$green-color: #27ae60;
 
 $short-duration: 150ms;
 $middle-duration: 300ms;
+$long-duration: 450ms;
 
-$content-padding-phone: 16px;
+$content-margin-phone: 16px;
+
+$header-height-mobile: 48px;
+$header-height-tablet: 64px;

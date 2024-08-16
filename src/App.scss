@@ -12,9 +12,10 @@ html {
 
 body {
   margin: 0;
-
+  // background-color: #0F1121;
 }
 
 .main-container {
+  overflow: hidden;
   @include content-padding-inline;
 }

@@ -1,6 +1,17 @@
 @import '../../utils/stylesUtils/variables.scss';
 @import '../../utils/stylesUtils/mixin.scss';
 
+@keyframes moveFromLeft {
+  0% {
+    transform: translateX(-25%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .skip-filters {
   position: absolute;
   right: 0;
@@ -22,6 +33,8 @@
 }
 
 .filter-form {
+  animation: moveFromLeft 1s;
+
   @include page-grid;
   row-gap: 16px;
   position: relative;

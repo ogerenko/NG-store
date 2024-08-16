@@ -12,6 +12,9 @@
 
     color: $main-text-color;
 
+    animation-name: moveTitle;
+    animation-duration: 1000ms;
+
     @include on-tablet {
       margin-block: 32px;
 
@@ -22,5 +25,16 @@
     @include on-desktop {
       margin-block: 56px;
     }
+  }
+}
+
+@keyframes moveTitle {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
 }

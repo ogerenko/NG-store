@@ -1,17 +1,18 @@
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 import './DetailProductPage.scss';
 import { getOneDetailProduct, getProducts } from '../../utils/api';
 import { Product } from '../../types/Product';
-import { capitalize, correctColor, scrollOnTop } from '../../utils';
+import { correctColor, scrollOnTop } from '../../utils';
 import { ProductExtended } from '../../types/ProductExtended';
 import { CarouselProductCards } from '../../components/CarouselProductCards';
 import { useSwipe } from '../../hooks/useSwipe';
 import { StoreContext } from '../../context/StoreContext';
 import { Loader } from '../../components/Loader';
 import { ProductNotFound } from '../../components/ProductNotFound';
+import { HistoryPath } from '../../components/HistoryPath';
 
 export const DetailProductPage = () => {
   const {
@@ -25,7 +26,7 @@ export const DetailProductPage = () => {
   } = useContext(StoreContext);
   const { productId = '' } = useParams();
   const navigate = useNavigate();
-  const { state, pathname } = useLocation();
+  const { pathname } = useLocation();
 
   const [currentProduct, setCurrentProduct] = useState<ProductExtended | null>(
     null,
@@ -44,7 +45,7 @@ export const DetailProductPage = () => {
     .includes(productId ? productId : '');
 
   useEffect(() => {
-    scrollOnTop();
+    scrollOnTop(64);
   }, [productId]);
 
   useEffect(() => {
@@ -170,32 +171,11 @@ export const DetailProductPage = () => {
 
   return (
     <>
-      <div className="history-path">
-        <Link to="/">
-          <div className="history-path__icon history-path__icon--home" />
-        </Link>
-        <div className="history-path__icon history-path__icon--arrow" />
-        <Link to={`/${currentCategory}`} className="history-path__page-name">
-          {capitalize(currentCategory)}
-        </Link>
-        <div className="history-path__icon history-path__icon--arrow" />
-        <Link
-          className="history-path__page-name"
-          to={`/${currentCategory}/${currentProduct?.id}`}
-        >
-          {currentProduct?.name}
-        </Link>
-      </div>
-
-      <div className="history-path">
-        <div className="history-path__icon history-path__icon--arrow--back" />
-        <Link
-          to={state ? `${state.pathname}?${state.search}` : '..'}
-          className="history-path__page-name"
-        >
-          Back
-        </Link>
-      </div>
+      <HistoryPath
+        currentProduct={currentProduct}
+        isButtonBack
+        isCurrentProduct
+      />
 
       {currentProduct?.id !== productId && !isErrorOfLoading ? (
         <div className="full-height-container">

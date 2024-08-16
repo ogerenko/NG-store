@@ -3,21 +3,10 @@
 
 .something-went-wrong {
   height: 400px;
-  background-image: url(../../../public/img/something-went-wrong.png);
+  background-image: url(../../../public/img/product-not-found.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-
-  &__title {
-    padding-top: 10px;
-    padding-left: 10px;
-    font-family: 'SemiBold';
-    font-size: 24px;
-    line-height: 41px;
-    letter-spacing: -0.01em;
-    text-align: left;
-    color: $secondary-text-color;
-  }
 }
 
 .carousel-product-cards {

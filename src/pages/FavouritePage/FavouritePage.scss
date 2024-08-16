@@ -2,12 +2,11 @@
 @import '../../utils/stylesUtils/mixin.scss';
 
 .favourite-page {
-  min-height: calc(100vh - 48px);
+  min-height: calc(100vh - $header-height-tablet - 96px);
 
   &--is-empty {
     background-image: url(../../../public/img/cart-is-empty.png);
-    height: 70vh;
-    width: 100%;
+    height: 50vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -16,8 +15,6 @@
 
 .favourite-title {
   margin: 0;
-  margin-bottom: 8px;
-
   font-family: 'Bold';
   font-size: 32px;
   line-height: 41px;
@@ -30,7 +27,8 @@
   font-size: 14px;
   line-height: 21px;
   color: $secondary-text-color;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
+  margin-top: 8px;
 }
 
 .favourite-cards {
@@ -42,4 +40,10 @@
   @include on-tablet {
     padding-bottom: 40px;
   }
+}
+
+.product-cards--in-favourites {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 80px;
 }

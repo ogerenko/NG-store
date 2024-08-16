@@ -1,7 +1,8 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import './NavBarMobile.scss';
 import classNames from 'classnames';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { StoreContext } from '../../context/StoreContext';
 
 type Props = {
   transition: number;
@@ -15,6 +16,7 @@ export const NavBarMobile: React.FC<Props> = ({
   navBarLinkItems,
 }) => {
   const { pathname } = useLocation();
+  const { favouriteProducts, basketProducts } = useContext(StoreContext);
 
   useEffect(() => {
     setTransition(100);
@@ -57,6 +59,42 @@ export const NavBarMobile: React.FC<Props> = ({
             </li>
           ))}
         </ul>
+
+        <div className="mobile-menu__buttons">
+          <NavLink
+            to="/favourites"
+            className={({ isActive }) =>
+              classNames('mobile-menu__button mobile-menu__button--favourite', {
+                'active-navlink': isActive,
+              })
+            }
+          >
+            {!!favouriteProducts.length && (
+              <span className="counter counter-favourite--mob-menu">
+                {favouriteProducts.length}
+              </span>
+            )}
+          </NavLink>
+
+          <NavLink
+            to="/basket"
+            className={({ isActive }) =>
+              classNames('mobile-menu__button mobile-menu__button--basket', {
+                'active-navlink': isActive,
+              })
+            }
+          >
+            {!!basketProducts.length && (
+              <span className="counter counter-basket--mob-menu">
+                {basketProducts.reduce((acc, item) => {
+                  const newAcc = acc + item.amount;
+
+                  return newAcc;
+                }, 0)}
+              </span>
+            )}
+          </NavLink>
+        </div>
       </div>
     </div>
   );

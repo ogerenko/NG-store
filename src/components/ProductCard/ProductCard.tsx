@@ -115,12 +115,21 @@ export const ProductCard: React.FC<Props> = ({ isDiscount, product }) => {
         >
           Add to card
         </button>
+        <Link to="/basket" className="tooltip tooltip__basket">
+          View Basket
+        </Link>
+
         <button
           className={classNames('button--add-to-favourite', {
             'button--add-to-favourite--active': isFavourite(),
           })}
           onClick={handleAddToFavourite}
         />
+        {pathname !== '/favourites' && (
+          <Link to="/favourites" className="tooltip tooltip__favourite">
+            View Favorites
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import './BasketPage.scss';
 import { Link, useLocation } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
 import { ProductBasket } from '../../types/Product';
+import { HistoryPath } from '../../components/HistoryPath';
 
 export const BasketPage = () => {
   const { pathname } = useLocation();
@@ -69,15 +70,7 @@ export const BasketPage = () => {
 
   return (
     <div className="basket-page">
-      <div className="history-path">
-        <Link to="/">
-          <div className="history-path__icon history-path__icon--home" />
-        </Link>
-        <div className="history-path__icon history-path__icon--arrow" />
-        <Link to="basket" className="history-path__page-name">
-          Basket
-        </Link>
-      </div>
+      <HistoryPath />
 
       <h1 className="basket-title">Basket</h1>
 

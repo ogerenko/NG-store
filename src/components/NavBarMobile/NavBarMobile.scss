@@ -41,6 +41,36 @@
     gap: 16px;
     align-items: center;
   }
+
+  &__links {
+    height: calc(100vh - 48px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__buttons {
+    display: flex;
+    border-top: 1px solid #e2e6e9;
+  }
+
+  &__button {
+    height: 64px;
+    width: 50vw;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+
+    &--favourite {
+      border-right: 1px solid #e2e6e9;
+      background-image: url(../../../public/img/icons-image/heart_empty.svg);
+    }
+
+    &--basket {
+      background-image: url(../../../public/img/icons-image/shop_bag.svg);
+    }
+  }
 }
 
 .button__close {
@@ -64,3 +94,10 @@
     width: 64px;
   }
 }
+
+.counter-basket--mob-menu, .counter-favourite--mob-menu {
+  position: absolute;
+  top: 25%;
+  left: 51%;
+}
+

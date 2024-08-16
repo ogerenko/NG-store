@@ -11,9 +11,7 @@ export const HomePage = () => {
 
   return (
     <div className="home-page">
-      <div className="home-page__title text_h1">
-        Welcome to Nice Gadgets store!
-      </div>
+      <div className="home-page__title">Welcome to Nice Gadgets store!</div>
 
       <Banner />
 

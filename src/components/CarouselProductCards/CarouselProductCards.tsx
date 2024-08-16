@@ -73,11 +73,7 @@ export const CarouselProductCards: React.FC<Props> = ({
       {!!!products.length && !isErrorOfLoading ? (
         <Loader />
       ) : !!!products.length ? (
-        <div className="something-went-wrong">
-          <div className="something-went-wrong__title">
-            Something went wrong...
-          </div>
-        </div>
+        <div className="something-went-wrong"></div>
       ) : (
         <>
           <div className="carousel-product-cards__window" ref={elementRef}>
