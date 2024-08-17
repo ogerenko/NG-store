@@ -2,17 +2,12 @@
 @import './utils/stylesUtils/variables';
 @import './utils/stylesUtils/fonts.scss';
 
-iframe {
-  display: none;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  // background-color: #0F1121;
 }
 
 .main-container {
