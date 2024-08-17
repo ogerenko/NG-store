@@ -1,7 +1,5 @@
 # Store gadgets
 
-This project
-
 Online store project for gadgets.
 Easy to use and using the best development technologies.
 
