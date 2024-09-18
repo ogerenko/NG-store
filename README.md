@@ -3,7 +3,7 @@
 Online store for gadgets.
 Easy to use and using the best development technologies.
 
-  - [DEMO LINK](https://ogerenko.github.io/Store-gadgets-react/)
+  - [DEMO LINK](https://ogerenko.github.io/NG-store/)
 
   - [MOCKUP LINK](https://www.figma.com/design/T5ttF21UnT6RRmCQQaZc6L/Phone-catalog-(V2)-Original?node-id=0-1&t=rzYzdoj4EdrqveDl-0)
 
