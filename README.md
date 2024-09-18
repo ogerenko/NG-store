@@ -31,7 +31,7 @@ To run this project locally, you will need:
 ## Installation
 
   1. Clone the repository:
-  #### `https://github.com/ogerenko/Store-gadgets-react.git`
+  #### `https://github.com/ogerenko/NG-store.git`
 
   2. Navigate to the project directory:
   #### `cd NG-store`
