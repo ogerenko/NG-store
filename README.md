@@ -1,6 +1,6 @@
-# Store gadgets
+# NG store
 
-Online store project for gadgets.
+Online store for gadgets.
 Easy to use and using the best development technologies.
 
   - [DEMO LINK](https://ogerenko.github.io/Store-gadgets-react/)
@@ -34,7 +34,7 @@ To run this project locally, you will need:
   #### `https://github.com/ogerenko/Store-gadgets-react.git`
 
   2. Navigate to the project directory:
-  #### `cd Store-gadgets-react`
+  #### `cd NG-store`
 
   3. Install the dependencies:
   #### `npm install`
